@@ -69,7 +69,7 @@ body {
     padding: 0;
     
     /* Imagen de fondo */
-    background-image: url('../CartaYear2026/carta.png');  /* reemplaza con tu imagen */
+    background-image: url('carta.png');  /* reemplaza con tu imagen */
     background-size: cover;               /* cubre todo el hero */
     background-position: center;          /* centra la imagen */
     background-repeat: no-repeat;         /* no repetir */
@@ -78,7 +78,7 @@ body {
 /* media query al final del CSS */
 @media (max-width: 768px) {
     .hero {
-        background-image: url('../CartaYear2026/carta2.png');
+        background-image: url('carta2.png');
     }
 }
 .hero h2 {
@@ -291,3 +291,4 @@ body.locked {
 .popup {
     display: none;
 }
+
