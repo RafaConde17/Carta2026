@@ -1,0 +1,293 @@
+:root {
+    --color-fondo: #1a1a2e;      /* morado oscuro */
+    --color-texto: #ffffff;      /* blanco puro */
+    --color-primario: #e94560;   /* rojo celebración */
+    --color-secundario: #f9c74f; /* amarillo chispa */
+}
+
+/* ========== RESET ========== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* ========== CONTAINER ========== */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ========== HEADER ========== */
+.header {
+    background: var(--color-secundario);
+    color: #ffffff;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.2rem;
+}
+
+.nav a {
+    margin-left: 15px;
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav a:hover {
+    color: #fff;
+}
+
+
+/* ========== HERO ========== */
+.hero {
+    position: relative;        /* para poder colocar contenido encima */
+     flex: 1;            /* ocupa toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffd700;
+    background: var(--color-primario);
+    padding: 0;
+    
+    /* Imagen de fondo */
+    background-image: url('../CartaYear2026/carta.png');  /* reemplaza con tu imagen */
+    background-size: cover;               /* cubre todo el hero */
+    background-position: center;          /* centra la imagen */
+    background-repeat: no-repeat;         /* no repetir */
+}
+
+/* media query al final del CSS */
+@media (max-width: 768px) {
+    .hero {
+        background-image: url('../CartaYear2026/carta2.png');
+    }
+}
+.hero h2 {
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+     font-family: 'Georgia', 'Times New Roman', serif;
+       text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* ========== BOTÓN ========== */
+.btn {
+    background: #fff;
+    color: var(--color-primario);
+    padding: 12px 26px;
+    border-radius: 999px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    width: 100%;
+    background: var(--color-secundario);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* ========== FUEGOS ARTIFICIALES ========== */
+#fireworks {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* ========== popup ========== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+
+.popup {
+ position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: rgba(255, 255, 255, 0.238); /* transparencia */
+    backdrop-filter: blur(8px);           /* efecto vidrio */
+    -webkit-backdrop-filter: blur(8px);
+
+    padding: 25px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 25px rgba(255, 0, 80, 0.4);
+
+}
+
+.overlay.active .popup {
+    animation:
+        abrirCarta 1s ease forwards,
+        blinkGlow 2s infinite;
+}
+
+
+
+
+.popup-content {
+ 
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    
+}
+
+.popup-content p,
+.popup-content h3 {
+    text-shadow: 
+        0 0 5px rgba(255,255,255,0.8),
+        0 0 10px rgba(255,255,255,0.6),
+        0 0 20px rgba(255,200,200,0.6);
+}
+
+
+@keyframes abrirCarta {
+    0% {
+        transform: translate(-50%, -50%) scaleY(0);
+        opacity: 0;
+    }
+    60% {
+        transform: translate(-50%, -50%) scaleY(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scaleY(1);
+    }
+}
+
+
+/* BLOQUEA SCROLL */
+body.locked {
+    overflow: hidden;
+}
+
+/* boton cerrar popup*/
+
+.close.reno {
+    font-size: 26px;
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    transition: transform 0.2s;
+}
+
+.close.reno::after {
+    content: "🔴";
+    position: absolute;
+    font-size: 10px;
+    right: 6px;
+    bottom: 4px;
+    animation: blink 1.2s infinite;
+}
+
+.close.reno:hover {
+    transform: scale(1.2);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+
+/* CLASE DE PARPADEO popup */
+.blink {
+    animation: blinkGlow 1.5s infinite;
+}
+
+/* Animación */
+@keyframes blinkGlow {
+    0% {
+        box-shadow: 0 0 10px red;
+    }
+    25% {
+        box-shadow: 0 0 20px green;
+    }
+    50% {
+        box-shadow: 0 0 20px gold;
+    }
+    75% {
+        box-shadow: 0 0 20px blue;
+    }
+    100% {
+        box-shadow: 0 0 10px red;
+    }
+}
+
+
+/* ========== CARTA CERRADA ========== */
+.carta-cerrada {
+    width: 220px;
+    height: 150px;
+    background: linear-gradient(135deg, #fff, #f2f2f2);
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: flotar 2s ease-in-out infinite;
+    font-size: 50px;
+    color: #e87aba;
+}
+
+.carta-cerrada span {
+    font-size: 14px;
+    margin-top: 8px;
+    color: #555;
+}
+
+/* animación flotante */
+@keyframes flotar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* ocultar popup al inicio */
+.popup {
+    display: none;
+}

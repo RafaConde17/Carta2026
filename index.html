@@ -1,0 +1,105 @@
+<!-- Archivo: index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Navidad</title>
+
+<link rel="stylesheet" href="../CartaYear2026/carta.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<canvas id="fireworks"></canvas>
+
+
+<!-- Header -->
+<header class="header">
+    <div class="container header-content">
+        <h1 class="logo">Sarang</h1>
+        <nav class="nav">
+            <a href="../CartaYear2026/index.html">Inicio</a>
+ 
+        </nav>
+    </div>
+</header>
+
+<!-- Hero principal -->
+<section class="hero">
+    <div class="container hero-content">
+        <h2>Feliz Año Nuevo</h2>
+
+      <button id="btnComenzar" class="btn">Comenzar</button>
+
+
+    </div>
+</section>
+
+<!-- POPUP -->
+ <div id="overlay" class="overlay">
+
+    <div id="cartaCerrada" class="carta-cerrada">
+    ✉️
+    <span>Haz clic para abrir</span>
+</div>
+
+
+<div id="popup" class="popup blink carta-animada">
+    <div class="popup-content">
+        <span id="cerrarPopup" class="close reno">🌟</span>
+        <h3>💖✨ Para ti, mi amor ✨💖</h3>
+<p>
+
+<br><br>
+🎆🌙 Empieza un nuevo año y no podía dejar pasar la oportunidad  
+de decirte lo importante que eres para mí 💫  
+<br>
+
+🌟 Cada día que compartimos fue sumando sonrisas, aprendizajes  
+y momentos que hoy forman parte de mi felicidad 🤍  
+<br>
+
+🎮💞 Entre conversaciones, risas y tiempo juntos,  
+descubrí que lo mejor de este año fue tenerte a mi lado ✨  
+<br>
+
+🤍 Gracias por estar
+y por hacer que cada instante tenga sentido 💖  
+<br>
+
+🎇❤️ Que este nuevo año nos regale más abrazos, más sueños  
+y muchas experiencias para seguir creciendo juntos 🌠  
+<br><br>
+
+💖 Siempre contigo 💖  
+<br>
+✨Feliz Año Nuevo, mi amor ✨
+</p>
+
+       
+    </div>
+</div>
+
+</div>
+<!-- MUSICA -->
+<audio id="musica" src="../CartaYear2026/carta.mp3" loop></audio>
+
+
+
+
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; <span id="year"></span> Por más años juntos 💖 </p>
+</footer>
+
+<script src="../CartaYear2026/carta.js"></script>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
